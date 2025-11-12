@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "dummy1": "Dummy 1",
+    "dummy2": "Dummy 2",
+    "dummy3": "Dummy 3"
+  },
+  "home": {
+    "title": "Bienvenue",
+    "text": "Texte",
+    "contained": "Contenu",
+    "outlined": "Souligné"
+  },
+  "about": {
+    "title": "À Propos",
+    "description": "Bienvenue sur la page À Propos. Ceci est un simple projet de démonstration Next.js."
+  }
+}

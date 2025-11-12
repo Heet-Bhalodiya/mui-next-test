@@ -1,4 +1,10 @@
-export default function Dummy1() {
+export default async function Dummy1({
+  params
+}: {
+  params: Promise<{ lang: string }>
+}) {
+  await params; // Consume params to avoid warnings
+
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-4">Dummy Page 1</h1>

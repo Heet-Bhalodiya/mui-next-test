@@ -1,0 +1,19 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About Us",
+    "dummy1": "Dummy 1",
+    "dummy2": "Dummy 2",
+    "dummy3": "Dummy 3"
+  },
+  "home": {
+    "title": "Welcome",
+    "text": "Text",
+    "contained": "Contained",
+    "outlined": "Outlined"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Welcome to the About Us page. This is a simple Next.js demo project."
+  }
+}
