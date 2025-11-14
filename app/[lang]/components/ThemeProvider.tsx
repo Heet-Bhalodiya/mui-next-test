@@ -22,10 +22,12 @@ export function ThemeProvider({
   const [theme, setTheme] = useState<Theme>(initialTheme);
   const [mounted, setMounted] = useState(false);
 
-  // Handle client-side mounting
-  if (typeof window !== 'undefined' && !mounted) {
+  useEffect(() => {
     setMounted(true);
-  }
+    // Apply theme to HTML element on mount
+    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.add(theme);
+  }, []);
 
   const toggleTheme = async () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -41,10 +43,6 @@ export function ThemeProvider({
       document.documentElement.classList.add(theme);
     }
   }, [theme, mounted]);
-
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

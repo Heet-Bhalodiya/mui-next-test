@@ -4,7 +4,6 @@ import "../globals.css";
 import Header from "./header/Header";
 import { i18n, type Locale } from '@/i18n'
 import ClientThemeProvider from './components/ClientThemeProvider';
-import { getThemeCookie } from './actions/theme';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,14 +32,13 @@ export default async function RootLayout({
   params: Promise<{ lang: string }>;
 }>) {
   const { lang } = await params;
-  const theme = await getThemeCookie();
 
   return (
-    <html lang={lang} className={theme}>
+    <html lang={lang}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ClientThemeProvider initialTheme={theme}>
+        <ClientThemeProvider>
           <Header lang={lang as Locale} />
           {children}
         </ClientThemeProvider>
