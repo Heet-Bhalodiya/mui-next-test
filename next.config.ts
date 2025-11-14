@@ -3,8 +3,7 @@ import type { NextConfig } from "next";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const nextConfig: NextConfig = {
-  basePath: basePath,
-  assetPrefix: basePath,
+  ...(basePath && { basePath, assetPrefix: basePath }),
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
@@ -12,8 +11,9 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/',
-        destination: '/en',
+        destination: `${basePath}/en`,
         permanent: false,
+        basePath: false,
       },
     ]
   },
