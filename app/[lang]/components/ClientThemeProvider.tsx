@@ -1,23 +1,17 @@
 'use client';
 
 import { ThemeProvider } from './ThemeProvider';
-import { useEffect, useState } from 'react';
-import { getThemeCookie } from '../actions/theme';
+import type { ThemeMode } from '../actions/theme';
 
 export default function ClientThemeProvider({
   children,
+  serverTheme,
 }: {
   children: React.ReactNode;
+  serverTheme: ThemeMode;
 }) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
-  useEffect(() => {
-    // Read theme from cookie on client side
-    getThemeCookie().then(setTheme);
-  }, []);
-
   return (
-    <ThemeProvider initialTheme={theme}>
+    <ThemeProvider serverTheme={serverTheme}>
       {children}
     </ThemeProvider>
   );

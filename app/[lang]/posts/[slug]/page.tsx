@@ -2,27 +2,12 @@ import { getDictionary } from '@/get-dictionary';
 import { type Locale } from '@/i18n';
 import { Metadata } from 'next';
 
-// Define the posts that will be statically generated
+// Define the posts
 const posts = [
   { slug: 'getting-started', title: 'Getting Started', content: 'Learn how to get started with our platform.' },
   { slug: 'advanced-features', title: 'Advanced Features', content: 'Explore advanced features and capabilities.' },
   { slug: 'best-practices', title: 'Best Practices', content: 'Follow these best practices for optimal results.' },
 ];
-
-// Generate static params for both lang and slug
-export async function generateStaticParams() {
-  const locales: Locale[] = ['en', 'es', 'fr'];
-
-  // Generate all combinations of locale and slug
-  const params = locales.flatMap((lang) =>
-    posts.map((post) => ({
-      lang,
-      slug: post.slug,
-    }))
-  );
-
-  return params;
-}
 
 // Generate metadata for each page
 export async function generateMetadata({
